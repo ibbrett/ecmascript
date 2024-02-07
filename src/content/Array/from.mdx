@@ -1,0 +1,25 @@
+---
+title: 'from()'
+pubDate: 'Jun 01 2015'
+header_title: 'from()'
+header_long_title: 'Array.from()'
+syntax: 'from(arrayLike [, mapFn [, thisArg]])'
+parent: ''
+what: 'static method, creates a new Array instance from an iterable or array-like object'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}  
+
+- simplifies the process of creating arrays with specified elements
+- create arrays with a dynamic number of elements
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const arrayDiem = Array.from('carpe diem');
+
+console.log(arrayDiem);
+// Expected Output: ['c', 'a', 'r', 'p', 'e', ' ', 'd', 'i', 'e', 'm']
+```
+</div>

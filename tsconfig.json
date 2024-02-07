@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "checkJs": true,
+    "allowJs": true,
+    "outDir": "typescript-builds/build-es6",
+    "target": "es6",
+    "noEmit": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["typescript-source/**/*"]
+}

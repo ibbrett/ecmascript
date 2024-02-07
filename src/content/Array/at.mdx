@@ -1,0 +1,48 @@
+---
+title: 'at()'
+pubDate: 'Jun 01 2022'
+header_title: 'at()'
+header_long_title: 'Array.prototype.at()'
+syntax: 'at(index, value)'
+parent: ''
+what: 'takes an integer value and returns the item at that index or undefined'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}  
+
+- allowing for positive and negative integers
+  - negative integers count back from the last item in the array
+  - .at(0) is the first item in the list, first index is 0
+  - .at(-1) is thelast item list
+- used with: [with()](../../Array/with/)
+  - by combining with() with at(), you can both write and read (respectively) an array using negative indices
+
+- compare to bracket notation 
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+console.log('initial list', list);
+// Expected Output: ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach']
+
+console.log('get value of first item in the list', list.at(0));
+// Expected Output: apple
+
+console.log('get value of last item in the list', list.at(-1));
+// Expected Output: peach
+
+console.log('get value of 10th item in the list', list.at(11));
+// Expected Output: undefined
+
+// alternative method 1: bracket notation with .length
+const indexFromEnd = 1;
+console.log('use bracket notation with .length to get value of last item in the list', list[list.length - indexFromEnd ]);
+// Expected Output: peach
+
+// alternative method 2: slice (returns an array)
+console.log('use slice to get last item in the list', list.slice(-1)[0]);
+// Expected Output: peach
+```
+</div>

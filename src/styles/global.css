@@ -1,0 +1,569 @@
+@keyframes slide-right {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-left {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes change-color-code {
+  0% {
+    color: #002244;
+    background-color: #69BE28;
+  }
+  50% {
+    color: #0055aa;
+    background-color: #9ee06c;
+  }
+  100% {
+    color: #002244;
+    background-color: #69BE28;
+  }
+}
+@keyframes change-color-features {
+  0% {
+    color: #002244;
+    background-color: #69BE28;
+  }
+  50% {
+    color: #0055aa;
+    background-color: #83d742;
+  }
+  100% {
+    color: #002244;
+    background-color: #69BE28;
+  }
+}
+.slide-right {
+  animation: slide-right 1500ms;
+}
+
+.slide-left {
+  animation: slide-left 1500ms;
+}
+
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+:root {
+  --accent: #2337ff;
+  --accent-dark: #000d8a;
+  --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 34, 41, 57;
+  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+  	0 16px 32px rgba(var(--gray), 33%);
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Atkinson", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  /*background: linear-gradient(var(--gray-gradient)) no-repeat;*/
+  /*background-size: 100% 600px;*/
+  background-color: rgba(254, 254, 254, 0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: rgb(var(--gray-dark));
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+main {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: auto;
+  padding: 1em;
+}
+
+main article a {
+  text-decoration: none;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+code {
+  padding: 2px 5px;
+  background-color: rgb(var(--gray-light));
+  border-radius: 2px;
+}
+
+pre {
+  padding: 1.5em;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+pre > code {
+  all: unset;
+}
+
+blockquote {
+  border-left: 4px solid #2337ff;
+  padding: 0 0 0 20px;
+  margin: 0px;
+  font-size: 1.333em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgb(var(--gray-light));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem 0;
+  color: rgb(var(--black));
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.052em;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
+  font-size: 1.953em;
+}
+
+h4 {
+  font-size: 1.563em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+a {
+  color: #002244;
+}
+a.footer {
+  color: #60739f;
+  text-decoration: none;
+  margin-left: 5px;
+}
+a.footer:hover {
+  color: black;
+}
+a:hover {
+  color: #2337ff;
+}
+
+/** footer **/
+footer {
+  padding: 2em 1em 6em 1em;
+  background-color: rgba(254, 254, 254, 0.1);
+  /*background: linear-gradient(var(--gray-gradient)) no-repeat;*/
+  color: rgb(var(--gray));
+  text-align: center;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+footer .social-links a {
+  text-decoration: none;
+  color: rgb(var(--gray));
+}
+
+footer .social-links a:hover {
+  color: rgb(var(--gray-dark));
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
+}
+
+.copied-to-clipboard .sr-only {
+  clip-path: unset;
+  font-size: 14px;
+  height: 34px;
+  display: inline-block;
+  width: 128px;
+  clip: auto;
+  left: -80px;
+  top: -25px;
+}
+
+.snippet a {
+  text-decoration: none;
+}
+.snippet .header {
+  font-size: 0;
+  /* remove whitespace */
+}
+.snippet .header .snippet-title,
+.snippet .header .snippet-link {
+  display: inline-block;
+  width: 50%;
+}
+.snippet .header .snippet-title {
+  font-size: 28px;
+  text-align: left;
+  font-weight: bold;
+}
+.snippet .header .snippet-link {
+  font-size: 16px;
+  text-align: right;
+}
+.snippet .snippet-long-title {
+  font-size: 14px;
+  text-align: left;
+}
+.snippet .snippet-syntax {
+  font-size: 16px;
+  text-align: left;
+  color: #2869be;
+  font-family: courier;
+}
+.snippet section.methods {
+  font-size: 17px;
+}
+.snippet section.methods h5 {
+  margin: 24px 0 0 0;
+}
+.snippet section.methods div {
+  line-height: 24px;
+}
+.snippet section.methods div a {
+  color: #69BE28;
+}
+.snippet section.methods div a:hover {
+  color: #2337ff;
+}
+
+.date {
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+.title {
+  margin-bottom: 1em;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.title h1 {
+  margin: 0 0 0.5em 0;
+}
+
+.about main {
+  background-color: rgba(254, 254, 254, 0.1);
+}
+
+.code main {
+  background-color: rgba(254, 254, 254, 0.1);
+}
+
+.features main {
+  background-color: rgba(254, 254, 254, 0.1);
+}
+
+.features .astro-code,
+.code .astro-code,
+.snippet .astro-code {
+  font-size: 14px;
+}
+
+.meta {
+  color: red;
+}
+
+.home-header {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.home-header a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.home-header a img {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.home-header h4 {
+  margin: auto 8px;
+}
+
+.head-shot {
+  width: 150px;
+  border-radius: 8px;
+}
+
+.layout section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.layout section ul li {
+  width: calc(50% - 1rem);
+}
+.layout section ul li * {
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.layout section ul li img {
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+}
+.layout section ul li a {
+  display: block;
+}
+.layout section ul li a:hover h4,
+.layout section ul li a:hover .date {
+  color: rgb(var(--accent));
+}
+.layout section ul a:hover img {
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 800px) {
+  .layout section ul {
+    gap: 0.5em;
+  }
+  .layout section ul li {
+    width: 100%;
+    text-align: center;
+  }
+}
+.layout main {
+  width: calc(100% - 2em);
+  max-width: 100%;
+  margin: 0;
+}
+.layout header nav h2 a div {
+  margin-right: 5px;
+}
+.layout .header-label {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 801px) {
+  .layout main {
+    min-width: 750px;
+    max-width: 850px;
+    margin: auto;
+  }
+}
+.hero-container {
+  width: 100%;
+  text-align: center;
+}
+
+.hero {
+  padding: 8px 96px;
+  border-radius: 8px;
+  border: 2px solid white;
+  display: inline-block;
+}
+
+.hero-header {
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.hero-title {
+  font-size: 24px;
+}
+
+.hero-date {
+  font-size: 18px;
+}
+
+.about .hero {
+  background-color: #69BE28;
+  color: #002244;
+}
+
+.code .hero {
+  background-color: #69BE28;
+  color: #002244;
+}
+
+.code .hero a {
+  color: #002244;
+}
+
+.features .hero {
+  background-color: #69BE28;
+  color: #002244;
+}
+
+.features .hero a {
+  color: #002244;
+}
+
+.about .hero a:hover,
+.features .hero a:hover,
+.code .hero a:hover {
+  color: #2337ff;
+}
+
+.prose {
+  width: auto;
+  max-width: calc(100% - 1em);
+  margin: auto;
+  padding: 1em;
+  color: rgb(var(--gray-dark));
+}
+.prose .label {
+  font-weight: bold;
+}
+.prose ul a {
+  color: #69BE28;
+}
+.prose ul a:hover {
+  color: #2337ff;
+}
+.prose .copy-to-clipboard-wrap {
+  position: relative;
+  margin-top: 32px;
+}
+.prose .copy-to-clipboard-wrap .copy-to-clipboard-icon {
+  position: absolute;
+  color: #002244;
+  right: -10px;
+  top: -12px;
+  border-radius: 50%;
+  background-color: #A5ACAF;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+}
+.prose .copy-to-clipboard-wrap .copy-to-clipboard-icon:hover {
+  background-color: #69BE28;
+}
+.prose .copy-to-clipboard-wrap .copy-to-clipboard-icon:hover svg {
+  color: white;
+}
+.prose .copy-to-clipboard-wrap.copied-to-clipboard pre {
+  background-color: #333 !important;
+}
+.prose .copy-to-clipboard-wrap.copied-to-clipboard pre * {
+  color: #fff !important;
+}
+
+@media (min-width: 720px) {
+  body {
+    font-size: 20px;
+  }
+
+  main {
+    padding: 3em 1em;
+  }
+
+  h2 {
+    font-size: 2.441em;
+  }
+
+  h4 {
+    font-size: 1.953em;
+  }
+
+  .head-shot {
+    width: 220px;
+  }
+
+  .layout header nav h2 a div {
+    display: inline;
+  }
+}
+@media (min-width: 1200px) {
+  .prose {
+    width: 1150px;
+  }
+}
+
+/*# sourceMappingURL=global.css.map */

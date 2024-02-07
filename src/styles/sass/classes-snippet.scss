@@ -1,0 +1,58 @@
+.snippet {
+  a {
+    text-decoration: none;
+  }
+
+  .header {
+    // display: flex;
+    // justify-content: space-between;
+    font-size: 0;
+
+    /* remove whitespace */
+    .snippet-title,
+    .snippet-link {
+      display: inline-block;
+      width: 50%;
+    }
+
+    .snippet-title {
+      font-size: 28px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .snippet-link {
+      font-size: 16px;
+      text-align: right;
+    }
+  }
+
+  .snippet-long-title {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .snippet-syntax {
+    font-size: 16px;
+    text-align: left;
+    color: $strong-blue; // $palette-bg;
+    font-family: courier;
+  }
+
+  section.methods {
+    font-size: 17px;
+
+    h5 {
+      margin: 24px 0 0 0;
+    }
+
+    div {
+      // font-size: 18px;
+      line-height: 24px;
+
+      a {
+        @include postAnchor;
+      }
+    }
+  }
+}

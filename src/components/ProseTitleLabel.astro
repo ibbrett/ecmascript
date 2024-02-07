@@ -1,0 +1,10 @@
+---
+const baseUrl = await import.meta.env.BASE_URL; // https://docs.astro.build/en/guides/environment-variables/#default-environment-variables
+const { page, posts, label } = Astro.props;
+---
+
+<div class="title">
+  {posts.map((post) => (<nobr><a href={`${baseUrl}/${page}/${post.slug}/`}>[ {post.slug} ]</a></nobr><span>&nbsp;&nbsp;</span>))}
+  <hr />
+</div>
+<div class="label">{label}:</div>

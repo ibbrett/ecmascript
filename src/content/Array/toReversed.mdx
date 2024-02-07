@@ -1,0 +1,32 @@
+---
+title: 'toReversed()'
+pubDate: 'Jun 01 2023'
+header_title: 'toReversed()'
+header_long_title: 'Array.prototype.toReversed()'
+syntax: 'toReversed()'
+parent: ''
+what: 'the copying counterpart of the reverse() method'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}   
+
+- [reverse()](../reverse/) is mutable - it changes the original array
+- toReversed() is immutable - it does not change the original array
+
+why use toReversed instead of reverse:
+- This allows you to mutate a copy of an array without needing to clone the array first
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = [ 1, 2, 3, 5, 8 ]
+const reversedList = list.toReversed();
+
+console.log('list', list);
+// Expected Output: [ 1, 2, 3, 5, 8 ]
+
+console.log('reversedList', reversedList);
+// Expected Output: [8, 5, 3, 2, 1]
+```
+</div>

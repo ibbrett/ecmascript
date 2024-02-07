@@ -1,0 +1,40 @@
+---
+title: 'join()'
+pubDate: 'Dec 01 1997'
+header_title: 'join()'
+header_long_title: 'Array.prototype.join()'
+syntax: 'join([separator])'
+parent: ''
+what: 'returns a string, a concatonation of array items with a separator'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+- separator default: comma
+- similar to [toString()](../tostring/)
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const countdownStart = 5;
+
+// create array with [countdownStart] number of items 
+// prepopulate values with sequential integers from 1 to n
+const list = [...new Array(countdownStart)].map((item,index) => index + 1);
+
+console.log('list', list);
+// Expected Output: [1, 2, 3, 4, 5]
+
+console.log('join list', list.join());
+// Expected Output: 1,2,3,4,5
+
+// join() without a separator defined produces the same output as toString()
+console.log('join list', list.toString());
+// Expected Output: 1,2,3,4,5
+
+// 'reverse list, then join with separator'
+console.log('display countdown', list.reverse().join(' ... '));
+// Expected Output: 5 ... 4 ... 3 ... 2 ... 1
+```
+</div>

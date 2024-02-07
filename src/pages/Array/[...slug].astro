@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import ArraySnippet from '../../layouts/ArraySnippet.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('Array');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'Array'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<ArraySnippet {...post.data}>
+	<Content />
+</ArraySnippet>

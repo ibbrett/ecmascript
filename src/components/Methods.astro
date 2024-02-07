@@ -1,0 +1,30 @@
+---
+const props = Astro.props
+const list = props.list
+const label = props.label
+const addLinks = false
+const mozPath = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/"
+
+const baseUrl = await import.meta.env.BASE_URL;
+const arrayPath = `${baseUrl}/Array/`;
+---
+
+<ul>
+  <li>
+    {label}:
+    {list.map((item) => {
+      const getItem = () => {
+        if ( addLinks ) {
+          return (<a href={mozPath + item.name} target="_blank">{item.name}()</a>)
+        } else {
+          return (<a href={arrayPath + item.name.toLowerCase() + '/'}>{item.name}()</a>)
+          // return (item.name + '()')
+        }
+      }
+      return (
+      <ul>
+        <li>{getItem()}: {item.desc}</li>
+      </ul>
+    )})}
+  </li>
+</ul>

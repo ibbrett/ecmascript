@@ -1,0 +1,38 @@
+---
+title: 'sort()'
+pubDate: 'Dec 01 1997'
+header_title: 'sort()'
+header_long_title: 'Array.prototype.sort()'
+syntax: 'sort([compareFn])'
+parent: ''
+what: 'sorts the order of array items in place'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+- sort() is mutable - it changes the original array
+- [toSorted()](../tosorted/) is immutable - it does not change the original array
+  
+sort and toSorted functions have some unexpected behavior with strings with accents, numbers, null, undefined
+  - provide a comparison function to ensure expected results
+  - values are coerced to strings
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = [ 1, 3, 5, 7, 9, 11 ];
+console.log('unsorted list', list);
+
+// perform sort without comparison function, values converted to strings
+list.sort();
+console.log('sorted list, alpha sort', list);
+// Expected Output: [1, 11, 3, 5, 7, 9]
+
+// perform sort with comparison function
+const compareNumbers = (a, b) => a - b;
+list.sort(compareNumbers);
+console.log('sorted list, numeric sort', list);
+// Expected Output: [1, 3, 5, 7, 9, 11]
+```
+</div>

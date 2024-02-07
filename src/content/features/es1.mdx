@@ -1,0 +1,29 @@
+---
+title: 'ES1 ECMAScript 1997'
+description: '1st Edition – ECMAScript 1997'
+pubDate: 'Dec 01 1997'
+---
+import {frontmatter as JoinPost} from '../Array/join.mdx'
+import {frontmatter as ToStringPost} from '../Array/toString.mdx'
+import {frontmatter as ReversePost} from '../Array/reverse.mdx'
+import {frontmatter as SortPost} from '../Array/sort.mdx'
+import Methods from "../../components/Methods.astro";
+export const methodsLabel = "Array methods";
+export const methods = [
+  { name: "join", desc: JoinPost.what },
+  { name: "reverse", desc: ReversePost.what },
+  { name: "sort", desc: SortPost.what },
+  { name: "toString", desc:  ToStringPost.what },
+];
+
+- variables, using the <i>var</i> keyword
+- data types
+  - two primitive data types: numbers and strings
+  - two complex data types: objects and arrays
+- Array properties:
+  - constructor: returns the constructor function
+<Methods label={methodsLabel} list={methods} />
+- functions
+- control flow
+  - if statement
+  - while, for, for-in loops

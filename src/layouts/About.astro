@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const baseUrl = await import.meta.env.BASE_URL;
+const gitHubProfileImage = "https://github.com/ibbrett.png";
+const page = 'about';
+type Props = CollectionEntry<'about'>['data'];
+const { title, description, header_title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} header_title={header_title} />
+	</head>
+	<body class={`${page} layout`}>
+		<Header />
+		<main class="slide-left">
+			<article>
+				<div class="hero-container">
+					{title && <div class="hero">
+						<div class="hero-header">Brett Morriss</div>
+						<div class="hero-title">ECMAScript Enthusiast</div>
+						<div class="date">
+							<img class="head-shot" src={gitHubProfileImage} alt="Brett Morriss head shot" />
+						</div>
+					</div>}
+				</div>
+				<div class="prose">
+					<!--div class="title">
+						[
+              <a href={`${baseUrl}/about`}>about</a> |	
+							
+              <a href={`${baseUrl}/about/resume`}>resume</a> |
+              <a href={`${baseUrl}/about/elevator-pitch`}>elevator pitch</a> |
+							
+              <a href="mailto:brettmorriss@gmail.com" target="_blank">brettmorriss@gmail.com</a>
+            ]
+						<hr />
+					</div-->
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

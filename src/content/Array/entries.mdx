@@ -1,0 +1,35 @@
+---
+title: 'entries()'
+pubDate: 'Jun 01 2015'
+header_title: 'entries()'
+header_long_title: 'Array.entries()'
+syntax: 'entries()'
+parent: ''
+what: 'returns a new array iterator object that contains the key/value pairs for each index in the array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+const entriesIterator = list.entries();
+
+let result = entriesIterator.next();
+while (!result.done) {
+  console.log(result.value);
+  result = entriesIterator.next();
+}
+
+// Expected output:
+// [0, 'apple']
+// [1, 'cherry']
+// [2, 'pumpkin']
+// [3, 'pecan']
+// [4, 'blueberry']
+// [5, 'peach']
+// {value: undefined, done: true}
+```
+</div>

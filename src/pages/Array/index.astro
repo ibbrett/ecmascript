@@ -1,0 +1,61 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_HEADER_TITLE, SITE_DEBUG } from '../../consts';
+import { getCollection } from 'astro:content';
+import { map as arraySnippets } from '../../meta/arraySnippets';
+let tempVersion = '';
+const baseUrl = await import.meta.env.BASE_URL;
+const allPosts = (await getCollection('Array'));
+const filteredPosts = allPosts.filter(post=>post.data.parent === '')
+const posts = filteredPosts.sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} header_title={SITE_HEADER_TITLE} />
+	</head>
+	<body class={`snippet layout`}>
+		<Header />
+		<main>
+			<h1 class="header-label">Array methods</h1>
+
+			<section class="methods">
+				{
+					posts.map((post) => {
+
+						const year = post.data.pubDate.getFullYear();
+						const arraySnippet = arraySnippets.get(year);
+						const version = true ? arraySnippet.version : arraySnippet.description;
+						const title = false ? post.data.header_long_title : post.data.title;
+
+						if ( SITE_DEBUG.on && SITE_DEBUG.arraySlugs ) {
+							console.log('Array method slugs', post.slug);
+						}
+
+						if ( version !== tempVersion ) {
+							tempVersion = version;
+							return (
+								<>
+									<h5><a href={`${baseUrl}/features/${version}/`}>{version}</a></h5>
+									<div><a href={`${baseUrl}/Array/${post.slug}/`}>{title}</a>: {post.data.what}</div>
+								</>
+							)
+						} else {
+							return (
+								<>
+									<div><a href={`${baseUrl}/Array/${post.slug}/`}>{title}</a>: {post.data.what}</div>
+								</>
+							)
+						}
+					})
+				}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

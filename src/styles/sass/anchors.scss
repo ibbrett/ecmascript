@@ -1,0 +1,19 @@
+a {
+
+	&.footer {
+		color: $anchor-footer-color;
+		text-decoration: none;
+		margin-left: 5px;
+
+		&:hover {
+			color: $anchor-footer-hover-color;
+		}
+	}
+
+	&:hover {
+		color: $anchor-hover-color;
+	}
+
+	color: $anchor-color;
+
+}

@@ -1,0 +1,9 @@
+---
+const baseUrl = await import.meta.env.BASE_URL;
+const { title, redirectPage } = Astro.props;
+---
+
+{ redirectPage === 'features' ?
+  <div class="hero-type"><a href={`${baseUrl}/${redirectPage}/${title.split(' ')[0].toLowerCase()}/`}>Features</a> | Code</div> :
+  <div class="hero-type">Features | <a href={`${baseUrl}/${redirectPage}/${title.split(' ')[0].toLowerCase()}/`}>Code</a></div>
+}

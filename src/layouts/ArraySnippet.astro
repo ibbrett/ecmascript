@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { map as arraySnippets } from '../meta/arraySnippets';
+import { SITE_DEBUG } from '../consts';
+
+type Props = CollectionEntry<'Array'>['data'];
+const { title, pubDate, header_title, header_long_title, syntax, parent } = Astro.props;
+const year = pubDate.getFullYear();
+const arraySnippet = arraySnippets.get(year);
+
+// const { title, version, description, pubDate, year, header_title, header_long_title, syntax, parent } = Astro.props;
+const description = arraySnippet.description;
+const version = arraySnippet.version;
+
+if ( SITE_DEBUG.on && SITE_DEBUG.arraySnippetDescription ) {
+	console.log('description', description, arraySnippets);
+	// console.log('pubDate', , typeof pubDate);
+}
+
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} method`} description={description} header_title={header_title} />
+	</head>
+	<body class={`snippet layout`}>
+		<Header />
+		<main>
+			<article>
+				<div class="prose">
+					<div class="header">
+						<span class="snippet-title">{header_title}</span>
+						{ description && 
+							<a class="snippet-link" href=`../../features/${version}/`>since: {description}</a>
+						}
+					</div>
+					{ parent === '' ? 
+					<div class="snippet-long-title">[ {header_long_title} ]</div>
+					
+					:
+					<div class="snippet-long-title"><a class="snippet-link" href=`../../Array/splice/`>[ {header_long_title} ]</a></div>
+				}
+					<div class="snippet-syntax" title="syntax, parameters, options">{syntax}</div>
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

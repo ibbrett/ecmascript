@@ -1,0 +1,34 @@
+---
+title: 'shift()'
+pubDate: 'Dec 01 1999'
+header_title: 'shift()'
+header_long_title: 'Array.prototype.shift()'
+syntax: 'shift()'
+parent: ''
+what: 'removes and returns item from beginning of array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+- to remove item:
+  - from index of array use [splice()](../splice-remove-item/)
+  - from the end of array use [pop()](../pop/)
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'banana', 'cantaloupe'];
+console.log('initial list', list);
+// Expected output: ['apple', 'banana', 'cantaloupe']
+
+// get/remove first item
+const returnValue = list.shift();
+
+console.log('get/remove first item', list);
+// Expected output: ['banana', 'cantaloupe']
+
+console.log('removed item', returnValue);
+// Expected output: apple
+```
+</div>

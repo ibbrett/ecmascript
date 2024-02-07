@@ -1,0 +1,144 @@
+---
+title: 'toLocaleString()'
+pubDate: 'Dec 01 1999'
+header_title: 'toLocaleString()'
+header_long_title: 'Array.prototype.toLocaleString()'
+syntax: 'toLocaleString([locales [, options]])'
+parent: ''
+what: 'returns a string representation of the array in a particular locale'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+The result of calling this function is intended to be analogous to the result of toString, except that the result of this function is intended to be locale-specific
+
+- This method is meant to be overridden by derived objects for locale-specific purposes
+- Object's toLocaleString returns the result of calling this.toString()
+
+- toLocaleString is for formatting
+- similar to:
+  - [toString()](../../Array/tostring/)
+- It can be used with the following JavaScript types:
+  - Date.prototype.toLocaleString() Dates/Time
+  - Number.prototype.toLocaleString() Numbers (numbers and currency)
+  - Array.prototype.toLocaleString()
+  - TypedArray.prototype.toLocaleString()
+  - BigInt.prototype.toLocaleString()
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const now = new Date();
+
+const list = [ now, 1234.56 ];
+console.log('initial list', list);
+// Expected output: [Thu Jan 25 2024 08:55:10 GMT-1000 (Hawaii-Aleutian Standard Time), 500]
+
+const euroOptions = { style: "currency", currency: "EUR" };
+const usdOptions = { style: "currency", currency: "USD" };
+console.log('string of array', list.toString());
+console.log('en', list.toLocaleString("en"));
+console.log('en-US', list.toLocaleString("en", usdOptions));
+console.log('en-GB', list.toLocaleString("en-GB", euroOptions));
+console.log('fr', list.toLocaleString("fr", euroOptions));
+console.log('fr-FR', list.toLocaleString("fr-FR", euroOptions));
+console.log('fr-CH', list.toLocaleString("fr-CH", euroOptions));
+
+// Expected output: 
+// "en"    locale string of array 1/25/2024, 8:55:10 AM,€500.00
+// "en-GB" locale string of array 25/01/2024, 08:55:10,€500.00
+// "fr"    locale string of array 25/01/2024 08:55:10,500,00 €
+// "fr-FR" locale string of array 25/01/2024 08:55:10,500,00 €
+// "fr-CH" locale string of array 25.01.2024 08:55:10,500.00 €
+```
+</div>
+
+<div class="copy-to-clipboard-wrap" id="code-sample-02">
+<CopyToClipboard id="code-sample-02"></CopyToClipboard>
+```js
+const aDate = new Date();
+const anObject = {quid:'quo'};
+const anArray = ['quid','pro','quo'];
+const list = [ 0, "1", null, undefined, true, Symbol(), 9999n, aDate, anObject, anArray ];
+
+const locales = 'en-GB'
+const options = { timeZone: 'UTC' }
+const args = [locales, options]
+console.log(list.toLocaleString());
+console.log(list.toLocaleString(...args));
+console.log(anObject.toString());
+```
+</div>
+
+
+<div class="copy-to-clipboard-wrap" id="code-sample-03">
+<CopyToClipboard id="code-sample-03"></CopyToClipboard>
+```js
+
+const amount = 1234.56;
+
+let options = (currency) => { return { style: 'currency', currency: currency } }
+
+console.log( 'currency amount', amount );
+
+let locale = "en-US"
+let currency = "USD"
+let localeCurrency = new Intl.NumberFormat( locale, options(currency) );
+console.log( `currency in ${currency} in locale: ${locale}`, localeCurrency.format(amount) );
+
+currency = "EUR"
+localeCurrency = new Intl.NumberFormat( locale, options(currency) );
+console.log( `currency in ${currency} in locale: ${locale}`, localeCurrency.format(amount) );
+
+locale = "fr-FR"
+currency = "USD"
+localeCurrency = new Intl.NumberFormat( locale, options(currency) );
+console.log( `currency in ${currency} in locale: ${locale}`, localeCurrency.format(amount) );
+
+currency = "EUR"
+localeCurrency = new Intl.NumberFormat( locale, options(currency) );
+console.log( `currency in ${currency} in locale: ${locale}`, localeCurrency.format(amount) );
+
+```
+</div>
+
+
+<div class="copy-to-clipboard-wrap" id="code-sample-04">
+<CopyToClipboard id="code-sample-04"></CopyToClipboard>
+```js
+
+const date = new Date()
+const isoDate = date.toISOString();
+
+const yearMonthOptions = {
+	year: 'numeric',
+	month: 'short'
+};
+const yearMonthDayOptions = {
+	year: 'numeric',
+	month: 'short',
+  day: 'numeric'
+};
+
+const weekdayYearMonthDayOptions = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
+
+console.log( 'isoDate', isoDate );
+
+
+const dateSamples = (locale) => {
+  console.log( 'date samples for locale', locale );
+  console.log( 'year/month', date.toLocaleDateString( locale, yearMonthOptions ) );
+  console.log( 'year/month/day', date.toLocaleDateString( locale, yearMonthDayOptions ) );
+  console.log( 'weekday/year/month/day', date.toLocaleDateString( locale, weekdayYearMonthDayOptions ) );
+}
+
+dateSamples("en-us");
+dateSamples("es-es");
+```
+</div>

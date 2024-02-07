@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import Hero from '../components/Hero.astro';
+import ProseTitleLabel from '../components/ProseTitleLabel.astro';
+const page = 'code';
+const redirectPage = 'features';
+const label = 'Code Snippets';
+const posts = (await getCollection(page)).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+type Props = CollectionEntry<{page: string}>['data'];
+const { title, description, pubDate, header_title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} header_title={header_title} />
+	</head>
+	<body class={`${page} layout`}>
+		<Header />
+		<main>
+			<article>
+				<Hero title={title} pubDate={pubDate} redirectPage={redirectPage} />
+				<div class="prose">
+					<ProseTitleLabel page={page} posts={posts} label={label} />
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

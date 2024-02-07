@@ -1,0 +1,64 @@
+---
+title: 'ES6 ECMAScript 2015'
+description: '6th Edition – ECMAScript 2015, aka ES6 Harmony'
+pubDate: 'Jun 17 2015'
+---
+
+import {frontmatter as FindPost} from '../Array/find.mdx'
+import {frontmatter as FindIndexPost} from '../Array/findindex.mdx'
+import Methods from "../../components/Methods.astro";
+export const searchMethodsLabel = "new Array search methods";
+export const searchMethods = [
+  { name: "find", desc: FindPost.what },
+  { name: "findIndex", desc: FindIndexPost.what },
+];
+
+import {frontmatter as OfPost} from '../Array/of.mdx'
+import {frontmatter as FromPost} from '../Array/from.mdx'
+export const staticMethodsLabel = "new Array static (class) methods";
+export const staticMethods = [
+  { name: "of", desc: OfPost.what },
+  { name: "from", desc: FromPost.what },
+];
+
+import {frontmatter as EntriesPost} from '../Array/entries.mdx'
+import {frontmatter as KeysPost} from '../Array/keys.mdx'
+import {frontmatter as ValuesPost} from '../Array/values.mdx'
+import {frontmatter as CopyWithinPost} from '../Array/copywithin.mdx'
+export const copyMethodsLabel = "new Array copy methods";
+export const copyMethods = [
+  { name: "entries", desc: EntriesPost.what },
+  { name: "keys", desc: KeysPost.what },
+  { name: "values", desc: ValuesPost.what },
+  { name: "copyWithin", desc: CopyWithinPost.what },
+  
+];
+
+- <a href="https://exploringjs.com/impatient-js/ch_regexps.html" target="_blank">regular expressions</a>
+  - <a href="https://exploringjs.com/impatient-js/ch_regexps.html#reg-exp-flags" target="_blank">flag support</a>: /y (sticky), /u (unicode)
+  - support for dotAll to come in ES9, hasIndices in ES13
+- block-scoping of variables and functions
+  - In ES5 there were three types of scope in JavaScript: function, global and lexical. 
+  - There was no block scope in ES5 other than function block, catch block and object block. Block scope came to existence for other blocks like loops, conditional statements, etc. with introduction of let and const keywords in ES6. 
+- let, const
+- arrow functions
+- promises
+- the ability to create and inherit classes
+- spread operator (...)
+- default parameter values
+<Methods label={staticMethodsLabel} list={staticMethods} />
+<Methods label={searchMethodsLabel} list={searchMethods} />
+<Methods label={copyMethodsLabel} list={copyMethods} />
+- for ... in loop
+- import/export
+- template literals using backticks (`), and for multi-line strings without escape characters
+- Python-style generators
+- binary data
+- typed arrays
+  - designed for dealing with raw binary data
+  - while not formally of type Array, typed arrays share most of its methods 
+- new collections (Map, Set and WeakMap)
+- number and math enhancements
+- reflection
+- proxies (metaprogramming for virtual objects and wrappers)
+

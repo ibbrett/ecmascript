@@ -1,0 +1,59 @@
+---
+title: 'reduce()'
+pubDate: 'Dec 03 2009'
+header_title: 'reduce()'
+header_long_title: 'Array.prototype.reduce()'
+syntax: 'reduce(callbackFn [, initialValue])'
+parent: ''
+what: 'reduces an array to a single value'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+- Keep in mind:
+  - the accumulator is initialized to the first element of an array unless an inital value is defined
+
+- similar to:
+  - [reduceRight()](../reduceright/)
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+// addition example: returns the same value with or without defining an initial value
+const initialValue = 0;
+const nums = [100, 30, 20];
+
+// define initial value
+const sumWithInitial = nums.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+},initialValue);
+console.log(`The sum of ${nums} = ${sumWithInitial}`);
+// Expected output: The sum of 100,30,20 = 150
+
+// omit initial value - the accumulator, in this case "total", is initialized to the first item in the array
+const sum = nums.reduce( ( total, current ) => total + current );
+console.log(`The sum of ${nums} = ${sum}`);
+// Expected output: The sum of 100,30,20 = 150
+
+const avg = sum / nums.length;
+console.log(`The average of ${nums} = ${avg}`);
+```
+</div>
+
+<div class="copy-to-clipboard-wrap" id="code-sample-02">
+<CopyToClipboard id="code-sample-02"></CopyToClipboard>
+```js
+// subtraction example: returns a different result when omitting vs defining an initial value
+const nums = [100, 30, 20];
+const getSubtractionTotal = ( acc, curr ) => acc - curr;
+
+// define initial value
+console.log(`The subtraction of ${nums} from 0 = `, nums.reduce( getSubtractionTotal, 0));
+// Expected output: The subtraction of 100,30,20 from 0 =  -150
+
+// omit initial value - the accumulator, in this case "total", is initialized to the first item in the array
+console.log(`The subtraction of ${nums.slice(1)} from ${nums.slice(0,1)} =`, nums.reduce( getSubtractionTotal));
+// Expected output: The subtraction of 30,20 from 100 = 50
+```
+</div>

@@ -1,0 +1,70 @@
+.date {
+	margin-bottom: 0.5em;
+	color: white;
+}
+
+.title {
+	margin-bottom: 1em;
+	padding: 1em 0;
+	text-align: center;
+}
+
+.title h1 {
+	margin: 0 0 0.5em 0;
+}
+
+.about main {
+	background-color: $about-bg;
+}
+
+.code main {
+	background-color: $code-bg;
+}
+
+.features main {
+	background-color: $features-bg;
+}
+
+.features,
+.code,
+.snippet {
+	.astro-code {
+		font-size: 14px;
+	}
+}
+
+
+
+.meta {
+	color: red;
+}
+
+.home-header {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	height: 80px;
+}
+
+.home-header a {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.home-header a img {
+	display: inline-block;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+}
+
+.home-header h4 {
+	margin: auto 8px;
+}
+
+.head-shot {
+	width: 150px;
+	border-radius: 8px;
+}

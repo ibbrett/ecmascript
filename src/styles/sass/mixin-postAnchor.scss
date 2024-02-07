@@ -1,0 +1,13 @@
+@mixin postAnchor {
+
+  // anchor defined in parent
+  // a {
+  color: $method-anchor-color;
+
+  &:hover {
+    color: $anchor-hover-color;
+  }
+
+  // }
+
+}

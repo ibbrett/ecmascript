@@ -1,0 +1,42 @@
+---
+title: 'splice()'
+pubDate: 'Dec 01 1999'
+header_title: 'splice() - remove item'
+header_long_title: 'Array.prototype.splice()'
+syntax: 'splice(start [, deleteCount [, item1-itemN]])'
+parent: 'splice'
+what: 'remove items from array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+- to remove item from the beginning of array use [shift()](../shift/)
+- to remove item from the end of array use [pop()](../pop/)
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'banana', 'cantaloupe', 'orange', 'lemon', 'dragon fruit', 'pear'];
+console.log('initial list', list);
+// Expected output: ['apple', 'banana', 'cantaloupe', 'orange', 'lemon', 'dragon fruit', 'pear']
+
+// remove an item at a particular index
+let returnValue = list.splice(1, 1);
+
+console.log('remove item from list', list);
+// Expected output: ['apple', 'cantaloupe', 'orange', 'lemon', 'dragon fruit', 'pear']
+
+console.log('removed item', returnValue);
+// Expected output: ['banana']
+
+// remove multiple items starting at a particular index
+returnValue = list.splice(2, 3);
+
+console.log('remove items from list', list);
+// Expected output: ['apple', 'cantaloupe', 'pear']
+
+console.log('removed items', returnValue);
+// Expected output: ['orange', 'lemon', 'dragon fruit']
+```
+</div>

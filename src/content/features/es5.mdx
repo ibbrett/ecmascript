@@ -1,0 +1,37 @@
+---
+title: 'ES5 ECMAScript 2009'
+description: '5th Edition – ECMAScript 2009'
+pubDate: 'Dec 03 2009'
+---
+
+import {frontmatter as ForEachPost} from '../Array/forEach.mdx'
+import {frontmatter as MapPost} from '../Array/map.mdx'
+import {frontmatter as ReducePost} from '../Array/reduce.mdx'
+import {frontmatter as FilterPost} from '../Array/filter.mdx'
+import {frontmatter as EveryPost} from '../Array/every.mdx'
+import {frontmatter as SomePost} from '../Array/some.mdx'
+import {frontmatter as IndexOfPost} from '../Array/indexOf.mdx'
+import {frontmatter as LastIndexOfPost} from '../Array/lastIndexOf.mdx'
+
+- "strict mode"
+- JSON support
+- String.prototype.trim()
+- String.prototype.charAt() to return a single character from a given position in a string.
+- new Array static (class) method: 
+  - Array.isArray(): determines whether the passed value is an Array
+- new Array iteration methods: 
+  - [forEach()](../../Array/foreach/): {ForEachPost.what}
+  - [map()](../../Array/map/): {MapPost.what}
+  - [reduce()](../../Array/reduce/): {ReducePost.what}
+  - [filter()](../../Array/filter/): {FilterPost.what}
+  - [every()](../../Array/every/): {EveryPost.what}
+  - [some()](../../Array/some/): {SomePost.what}
+- new Array search methods: 
+  - [indexOf()](../../Array/indexof/): {IndexOfPost.what}
+  - [lastIndexOf()](../../Array/lastindexof/): {LastIndexOfPost.what}
+- A comma after the final pair of values in an object no longer causes a syntax error
+
+```js
+// prior to ES5, this trailing comma caused an error
+const example = { "property1":"value1", "property2":"value2", };
+```

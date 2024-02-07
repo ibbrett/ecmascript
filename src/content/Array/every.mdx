@@ -1,0 +1,29 @@
+---
+title: 'every()'
+pubDate: 'Dec 03 2009'
+header_title: 'every()'
+header_long_title: 'Array.prototype.every()'
+syntax: 'every(callbackFn [, thisArg])'
+parent: ''
+what: 'returns true/false, whether each array item passes the test of the provided function'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+console.log('all items', list);
+// Expected output: 
+
+let min = 5;
+console.log(`everyItemLongEnough, minimum ${min} chars`, list.every( item => item.length >= min ));
+// Expected output: true
+
+min = 6;
+console.log(`everyItemLongEnough, minimum ${min} chars`, list.every( item => item.length >= min ));
+// Expected output: false
+```
+</div>

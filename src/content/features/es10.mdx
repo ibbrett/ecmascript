@@ -1,0 +1,28 @@
+---
+title: 'ES10 ECMAScript 2019'
+description: '10th Edition – ECMAScript 2019'
+pubDate: 'Jun 01 2019'
+---
+
+import {frontmatter as FlatPost} from '../Array/flat.mdx'
+import {frontmatter as FlatMapPost} from '../Array/flatmap.mdx'
+import Methods from "../../components/Methods.astro";
+export const transformMethodsLabel = "new Array transformation methods";
+export const transformMethods = [
+  { name: "flat", desc: FlatPost.what },
+  { name: "flatMap", desc: FlatMapPost.what },
+];
+
+- BigInt
+- Array.sort now retains order if keys are equal
+  - Array.sort is now guaranteed to be stable, meaning that elements with equal sorting keys will not change relative order before and after the sort operation.
+<Methods label={transformMethodsLabel} list={transformMethods} />
+- Object.fromEntries()
+  - static method transforms a list of key-value pairs into an object, reverse operation from Object.entries
+- String methods: trimStart(), trimEnd()
+- Optional catch binding
+  - allows you to omit the parameter in the catch block, enabling you to catch an exception without explicitly assigning it to a variable, catch{} now works in addition to catch(e){}
+- Symbol.prototype.description (accessor property)
+- Function.prototype.toString()
+- Promise.allSettled()
+- Improvement on Unicode support for JSON.stringify()

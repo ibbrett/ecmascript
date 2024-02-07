@@ -1,0 +1,21 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import Redirect from './Redirect.astro';
+const { title, pubDate, redirectPage } = Astro.props;
+const year = title.split(' ')[2];
+const yearFound = year >= 2016 && year <=2023;
+const langSpecUrl = yearFound ? `https://tc39.es/ecma262/${year}` : `https://tc39.es/ecma262`;
+---
+
+<div class="hero-container">
+  {title && <div class="hero">
+    <div class="hero-header">{title.split(' ')[0]}</div>
+    <div class="hero-title">
+      <a href={langSpecUrl} target="_blank">{title.split(' ')[1]}&nbsp;{title.split(' ')[2]}</a>
+    </div>
+    <Redirect title={title} pubDate={pubDate} redirectPage={redirectPage} />
+    <div class="date">
+      <FormattedDate date={pubDate} />
+    </div>
+    </div>}
+</div>

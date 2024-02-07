@@ -1,0 +1,29 @@
+---
+title: 'filter()'
+pubDate: 'Dec 03 2009'
+header_title: 'filter()'
+header_long_title: 'Array.prototype.filter()'
+syntax: 'filter(callbackFn [, thisArg])'
+parent: ''
+what: 'creates a shallow copy of a portion of a given array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+console.log('all items', list);
+// Expected output: 
+
+const fiveLetterItems = list.filter( item => item.length === 5 );
+console.log('five letter items', fiveLetterItems);
+// Expected output: 
+
+list[0] = 'lemon';
+console.log('all items', list);
+console.log('five letter items', fiveLetterItems);
+```
+</div>

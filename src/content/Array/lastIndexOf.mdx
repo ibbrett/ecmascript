@@ -1,0 +1,29 @@
+---
+title: 'lastIndexOf()'
+pubDate: 'Dec 03 2009'
+header_title: 'lastIndexOf()'
+header_long_title: 'Array.prototype.lastIndexOf()'
+syntax: 'lastIndexOf(callbackFn [, thisArg])'
+parent: ''
+what: 'returns the last index, searching backwards to found item index, returns -1 if it is not found'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'blueberry', 'cherry', 'apple'];
+console.log('all items', list);
+// Expected output: 
+
+let searchItem = 'apple';
+console.log(`last index for ${searchItem} in list`, list.lastIndexOf(searchItem));
+// Expected output: 3
+
+searchItem = 'banana';
+console.log(`last index for ${searchItem} in list`, list.lastIndexOf(searchItem));
+// Expected output: -1
+```
+</div>

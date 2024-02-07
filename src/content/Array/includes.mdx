@@ -1,0 +1,30 @@
+---
+title: 'includes()'
+pubDate: 'Jun 01 2016'
+header_title: 'includes()'
+header_long_title: 'Array.prototype.includes()'
+syntax: 'includes(searchElement [, fromIndex])'
+parent: ''
+what: 'returns true/false, indicating whether an array includes a search value'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}  
+
+- replaces: arr.indexOf('pecan') >= 0
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```jsexit
+
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+console.log('list', list);
+// Expected Output: ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach']
+
+console.log('list includes "pecan"', list.includes('pecan'));
+// Expected Output: List includes "pecan" true
+
+console.log('list include "pistachio"', list.includes('pistachio'));
+// Expected Output: List includes "pistachio" false
+```
+</div>

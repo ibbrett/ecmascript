@@ -1,0 +1,23 @@
+{
+  "name": "ecmascript",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "compile:sass": "sass src/styles/sass/index.scss src/styles/global.css -w",
+    "compile:ts": "npx tsc"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.1.5",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.1",
+    "astro": "^3.2.3"
+  },
+  "devDependencies": {
+    "sass": "^1.69.3"
+  }
+}

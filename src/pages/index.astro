@@ -1,0 +1,68 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_HEADER_TITLE } from '../consts';
+const gitHubUrl = "https://github.com/ibbrett";
+const gitHubProfileImage = "https://github.com/ibbrett.png";
+const ecma262Url = "https://www.ecma-international.org/wp-content/uploads/ECMA-262_1st_edition_june_1997.pdf";
+const refUrl = "https://github.com/ibbrett/ecmascript/tree/master/README/README-REFERENCES.md";
+const featuresUrl = "/ecmascript/features";
+const codeUrl = "/ecmascript/code";
+const aboutUrl = "/ecmascript/about";
+---
+
+<script is:inline>
+	const urlSearchParams = new URLSearchParams(window.location.search);
+	const params = Object.fromEntries(urlSearchParams.entries());
+	let isAdmin = false;
+	if(params.hasOwnProperty('admin')){
+		isAdmin = true;
+	}
+	console.log('params', params);
+	</script>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} header_title={SITE_HEADER_TITLE} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="slide-right">
+			<div class="home-header">
+			<a href={gitHubUrl} target="_blank"><img src={gitHubProfileImage}></a> 
+			<h4 class="label">Hello ECMAScript Enthusiasts!</h4>
+		</div>
+			<!--p>
+				Curious about the evolution of ECMAScript?
+			</p-->
+
+			<p>JavaScript was created in 1995 by Brendan Eich of Netscape.
+			</p>
+
+			<p>
+Microsoft introduced JScript in Internet Explorer 3 in 1996.
+			</p>
+
+			<p>To standardize the language Netscape submitted JavaScript to the European Computer Manufacturers Association (ECMA) in 1996.</p>
+			<p>This led to the first official release of <a href={ecma262Url} target="_blank">ECMA-262</a> in 1997.</p>
+			<!--p>
+			Each Web browser and server that supports ECMAScript supplies its own host environment, completing the
+			ECMAScript execution environment.
+			</p-->
+			<p>To find out more about: </p>
+			<ul>
+				<li>ECMAScript version features, take a look at the <code><a href={featuresUrl}>Features</a></code></li>
+				<li>ECMAScript version code samples, take a look at the <code><a href={codeUrl}>Code</a></code></li>
+				<li>ECMAScript Array methods, take a look at <code><a href={codeUrl}>Array</a></code></li>
+				<li>me, take a look at the <code><a href={aboutUrl}>About</a> section</code></li>
+				<script is:inline>
+					if(isAdmin){document.write('<li>sources for ECMAScript information, take a look at the <code><a href={refUrl} target="_blank">References</a> readme</code></li>')}
+				</script>
+			</ul>
+			<p>Enjoy!</p>
+		</main>
+		<Footer />
+	</body>
+</html>

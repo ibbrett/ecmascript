@@ -1,0 +1,32 @@
+---
+title: 'values()'
+pubDate: 'Jun 01 2015'
+header_title: 'values()'
+header_long_title: 'Array.values()'
+syntax: 'values()'
+parent: ''
+what: 'returns a new array iterator object with values for each index in the array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+const entriesIterator = list.values();
+
+for (const value of entriesIterator) {
+  console.log('entry value: ', value);
+}
+
+// Expected output:
+// entry key:  apple
+// entry key:  cherry
+// entry key:  pumpkin
+// entry key:  pecan
+// entry key:  blueberry
+// entry key:  peach
+```
+</div>

@@ -1,0 +1,49 @@
+$strong-blue: #2869be;
+$ice-blue: #F0F8FF;
+$baby-blue: #89CFF0;
+
+$wolf-gray: #A5ACAF; // RGB: (165, 172, 175)
+$action-green: #69BE28; // RGB: (105, 190, 40)
+$college-navy: #002244; // RGB: (0, 34, 68)
+
+
+// astro-defined colors, defined in :root
+$astro-root-accent: #2337ff; // --accent: #2337ff;
+
+$hero-border: 2px solid white;
+$hero-padding: 8px 96px;
+$hero-border-radius: 8px;
+$hero-header-font-size: 64px;
+$hero-title-font-size: 24px;
+$hero-date-font-size: 18px;
+
+$palette-base: rgba(254, 254, 254, .1);
+$palette-bg: $action-green;
+$palette-bold1: $college-navy; // about
+$palette-bold2: $college-navy; // features
+$palette-bold3: $college-navy; // code
+
+$about-hero-bg: $palette-bg;
+$about-hero-color: $palette-bold1;
+$features-hero-bg: $palette-bg;
+$features-hero-color: $palette-bold2;
+$code-hero-bg: $palette-bg;
+$code-hero-color: $palette-bold3;
+
+$snippet-method: $palette-bold1;
+$snippet-method: $palette-bg;
+
+$about-bg: $palette-base;
+$code-bg: $palette-base;
+$features-bg: $palette-base;
+
+$anchor-color: $college-navy;
+$method-anchor-color: $action-green;
+$anchor-footer-color: rgb(96, 115, 159);
+$anchor-hover-color: $astro-root-accent;
+$anchor-footer-hover-color: black;
+
+$copy-to-clipboard-icon-bubble-bg: $wolf-gray;
+$copy-to-clipboard-icon-bubble-bg-hover: $action-green;
+$copy-to-clipboard-icon-color: $college-navy;
+$copy-to-clipboard-icon-color-hover: white; // $wolf-gray;

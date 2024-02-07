@@ -1,0 +1,28 @@
+---
+title: 'isArray()'
+pubDate: 'Dec 03 2009'
+header_title: 'isArray()'
+header_long_title: 'Array.isArray()'
+syntax: 'isArray(value)'
+parent: ''
+what: 'static method, returns true/false, indicates whether an object is an array'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}  
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'banana', 'cantaloupe', 'orange', 'lemon', 'pear'];
+
+console.log('list', list);
+// Expected output: ['apple', 'banana', 'cantaloupe', 'orange', 'lemon', 'pear']
+
+console.log('typeof list', typeof list);
+// Expected output: typeof list object
+
+console.log('list is an array?', Array.isArray(list));
+// Expected output: list is an array? true
+```
+</div>

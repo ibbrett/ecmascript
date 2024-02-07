@@ -1,0 +1,29 @@
+---
+title: 'some()'
+pubDate: 'Dec 03 2009'
+header_title: 'some()'
+header_long_title: 'Array.prototype.some()'
+syntax: 'some(callbackFn [, thisArg])'
+parent: ''
+what: 'returns true/false, whether at least one array item passes the test of the provided function'
+---
+import CopyToClipboard from '../../components/CopyToClipboard.astro'
+
+{frontmatter.what}
+
+<div class="copy-to-clipboard-wrap" id="code-sample-01">
+<CopyToClipboard id="code-sample-01"></CopyToClipboard>
+```js
+const list = ['apple', 'cherry', 'pumpkin', 'pecan', 'blueberry', 'peach'];
+console.log('all items', list);
+// Expected output: 
+
+let minLength = 9;
+console.log(`has some items with length ${minLength}`, list.some( item => item.length >= minLength ));
+// Expected output: true
+
+minLength = 10;
+console.log(`has some items with length ${minLength}`, list.some( item => item.length >= minLength ));
+// Expected output: false
+```
+</div>
